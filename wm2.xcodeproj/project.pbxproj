@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD27A7D21944F6CD001368BE /* ClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A7D11944F6CD001368BE /* ClearView.swift */; };
+		BD27A7D41944FB74001368BE /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A7D31944FB74001368BE /* CellView.swift */; };
+		BD27A7DE194518E9001368BE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD27A7DD194518E9001368BE /* icon.png */; };
+		BD4BB081194383010008FCD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4BB080194383010008FCD9 /* main.swift */; };
+		BD4BB083194383010008FCD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4BB082194383010008FCD9 /* AppDelegate.swift */; };
+		BD4BB085194383010008FCD9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD4BB084194383010008FCD9 /* Images.xcassets */; };
+		BD4BB088194383010008FCD9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4BB086194383010008FCD9 /* MainMenu.xib */; };
+		BD56209A1944497C00231948 /* WM2Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5620991944497C00231948 /* WM2Helper.m */; };
+		BD56209D1944603900231948 /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD56209C1944603900231948 /* KeyHandler.swift */; };
+		BD56209F1944832400231948 /* WM2Application.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56209E1944832400231948 /* WM2Application.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BD27A7D11944F6CD001368BE /* ClearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearView.swift; sourceTree = "<group>"; };
+		BD27A7D31944FB74001368BE /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		BD27A7DD194518E9001368BE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BD4BB07B194383010008FCD9 /* wm2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wm2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4BB07F194383010008FCD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD4BB080194383010008FCD9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BD4BB082194383010008FCD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD4BB084194383010008FCD9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BD4BB087194383010008FCD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BD5620981944497C00231948 /* wm2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wm2-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD5620991944497C00231948 /* WM2Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WM2Helper.m; sourceTree = "<group>"; };
+		BD56209B194449A000231948 /* WM2Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WM2Helper.h; sourceTree = "<group>"; };
+		BD56209C1944603900231948 /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
+		BD56209E1944832400231948 /* WM2Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WM2Application.m; sourceTree = "<group>"; };
+		BD5620A01944833200231948 /* WM2Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WM2Application.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD4BB078194383010008FCD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD4BB072194383010008FCD9 = {
+			isa = PBXGroup;
+			children = (
+				BD4BB07D194383010008FCD9 /* wm2 */,
+				BD4BB07C194383010008FCD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD4BB07C194383010008FCD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD4BB07B194383010008FCD9 /* wm2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD4BB07D194383010008FCD9 /* wm2 */ = {
+			isa = PBXGroup;
+			children = (
+				BD27A7DD194518E9001368BE /* icon.png */,
+				BD4BB082194383010008FCD9 /* AppDelegate.swift */,
+				BD4BB084194383010008FCD9 /* Images.xcassets */,
+				BD4BB086194383010008FCD9 /* MainMenu.xib */,
+				BD4BB07E194383010008FCD9 /* Supporting Files */,
+				BD5620991944497C00231948 /* WM2Helper.m */,
+				BD5620981944497C00231948 /* wm2-Bridging-Header.h */,
+				BD56209B194449A000231948 /* WM2Helper.h */,
+				BD56209C1944603900231948 /* KeyHandler.swift */,
+				BD27A7D31944FB74001368BE /* CellView.swift */,
+				BD27A7D11944F6CD001368BE /* ClearView.swift */,
+				BD56209E1944832400231948 /* WM2Application.m */,
+				BD5620A01944833200231948 /* WM2Application.h */,
+			);
+			path = wm2;
+			sourceTree = "<group>";
+		};
+		BD4BB07E194383010008FCD9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD4BB07F194383010008FCD9 /* Info.plist */,
+				BD4BB080194383010008FCD9 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD4BB07A194383010008FCD9 /* wm2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD4BB097194383010008FCD9 /* Build configuration list for PBXNativeTarget "wm2" */;
+			buildPhases = (
+				BD4BB077194383010008FCD9 /* Sources */,
+				BD4BB078194383010008FCD9 /* Frameworks */,
+				BD4BB079194383010008FCD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wm2;
+			productName = wm2;
+			productReference = BD4BB07B194383010008FCD9 /* wm2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD4BB073194383010008FCD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = kuz.io;
+				TargetAttributes = {
+					BD4BB07A194383010008FCD9 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = BD4BB076194383010008FCD9 /* Build configuration list for PBXProject "wm2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD4BB072194383010008FCD9;
+			productRefGroup = BD4BB07C194383010008FCD9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD4BB07A194383010008FCD9 /* wm2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD4BB079194383010008FCD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD27A7DE194518E9001368BE /* icon.png in Resources */,
+				BD4BB085194383010008FCD9 /* Images.xcassets in Resources */,
+				BD4BB088194383010008FCD9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD4BB077194383010008FCD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD27A7D21944F6CD001368BE /* ClearView.swift in Sources */,
+				BD56209A1944497C00231948 /* WM2Helper.m in Sources */,
+				BD4BB083194383010008FCD9 /* AppDelegate.swift in Sources */,
+				BD56209D1944603900231948 /* KeyHandler.swift in Sources */,
+				BD56209F1944832400231948 /* WM2Application.m in Sources */,
+				BD4BB081194383010008FCD9 /* main.swift in Sources */,
+				BD27A7D41944FB74001368BE /* CellView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD4BB086194383010008FCD9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD4BB087194383010008FCD9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD4BB095194383010008FCD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD4BB096194383010008FCD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BD4BB098194383010008FCD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = wm2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wm2/wm2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD4BB099194383010008FCD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = wm2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wm2/wm2-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD4BB076194383010008FCD9 /* Build configuration list for PBXProject "wm2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD4BB095194383010008FCD9 /* Debug */,
+				BD4BB096194383010008FCD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD4BB097194383010008FCD9 /* Build configuration list for PBXNativeTarget "wm2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD4BB098194383010008FCD9 /* Debug */,
+				BD4BB099194383010008FCD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD4BB073194383010008FCD9 /* Project object */;
+}

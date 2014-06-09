@@ -1,0 +1,21 @@
+WM2
+
+Simple Mac OS X tool for switching between apps, alternative to Cmd+Tab and Spaces.
+It uses key bindings Ctrl+left_arrow, Ctrl+right_arrow, Ctrl+up_arrow and Ctrl+down_arrow.
+You might want to unbind those existing shortcuts before using this tool.
+
+I use it as an addition to Cmd+Tab, not a replacement. Though I never use Spaces.
+
+The idea behind this switch is that there are 4-8 apps that you use during your work day, and
+you switch between them quite frequently. For me standard spaces of Mac OS are  
+unusable, and Cmd+Tab is kind of slow. I know what app I want to run, so I want shortest 
+possible shortcuts for those.
+
+Right now there are seven apps hardcoded, for example to run android dev studio, press 
+Ctrl+Left, to run Chrome, press Ctrl+right, right.
+
+I wrote this app for my own usage, it is absolutelly possible that your work flow differs from 
+mine, so if it doesn't work for you - I don't care. If it kinda works and you wish some 
+improvement - please let me know, but keep in mind that I spent verry little time creating this
+app so it's very limited. My experience programming for Mac OS in Objective C and Swift is about 1 day.
+
