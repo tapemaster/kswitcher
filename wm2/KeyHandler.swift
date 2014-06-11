@@ -87,10 +87,10 @@ var cells = Array<Array<CellView?>>()
         window?.orderOut(nil)
     }
     
-    class func setWindow(w: NSWindow) {
-        resetPos()
+    func setWindow(w: NSWindow) {
+        KeyHandler.resetPos()
         window = w
-        updateWindowPosition()
+        KeyHandler.updateWindowPosition()
     }
     
     class func updateWindowPosition() {
@@ -118,7 +118,7 @@ var cells = Array<Array<CellView?>>()
         window?.setFrame(frameRect, display: true)
     }
     
-    class func setupView(parentView: NSView) {
+    func setupView(parentView: NSView) {
         let columns = data[0].count
         let rows = data.count
 

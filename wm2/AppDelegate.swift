@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         WM2Helper.requestAccessibility()
         WM2Helper.registerHotkeys(keyHandler)
         WM2Helper.setupWindow(window)
-        KeyHandler.setWindow(window)
-        KeyHandler.setupView(parentView)
+        keyHandler.setWindow(window)
+        keyHandler.setupView(parentView)
         
         statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(CGFloat(NSVariableStatusItemLength))
         statusItem!.menu = menu
