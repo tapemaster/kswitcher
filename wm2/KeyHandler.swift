@@ -6,7 +6,7 @@ var posY = 0
 var window: NSWindow?
 let data = [
     ["",         "",             "Firefox",  "",           ""         ],
-    ["",         "",              "Mail",    "",           ""         ],
+    ["",         "Finder",        "Mail",    "",           ""         ],
     ["Terminal", "Android Studio",  "",  "SourceTree", "Google Chrome"],
     ["",         "",              "Adium",    "",           ""        ],
     ["",         "",              "",         "",           ""        ]
