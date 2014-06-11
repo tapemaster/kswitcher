@@ -53,6 +53,7 @@ var cells = Array<Array<CellView?>>()
     
     class func stateUpdated() {
         window?.orderBack(nil)
+        updateWindowPosition()
         let appName = data[posY][posX];
         NSWorkspace.sharedWorkspace().launchApplication(appName)
         disableInactiveCells()
@@ -89,6 +90,10 @@ var cells = Array<Array<CellView?>>()
     class func setWindow(w: NSWindow) {
         resetPos()
         window = w
+        updateWindowPosition()
+    }
+    
+    class func updateWindowPosition() {
         let screenRect = NSScreen.mainScreen()!.frame
         var height = screenRect.height / Double(2)
         let minSize = Double(200)
