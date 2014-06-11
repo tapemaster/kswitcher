@@ -7,6 +7,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var parentView: NSView
     @IBOutlet var menu: NSMenu
     var statusItem: NSStatusItem?
+    let keyHandler = KeyHandler()
 
     init() {
 
@@ -14,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         WM2Helper.requestAccessibility()
-        WM2Helper.registerHotkeys()
+        WM2Helper.registerHotkeys(keyHandler)
         WM2Helper.setupWindow(window)
         KeyHandler.setWindow(window)
         KeyHandler.setupView(parentView)

@@ -11,7 +11,7 @@
     if (tp == NSFlagsChanged) {
         NSUInteger mod = [anEvent modifierFlags];
         if(!(mod & NSControlKeyMask)) {
-            [KeyHandler onCtrlReleased];
+            [[(AppDelegate*)[[NSApplication sharedApplication] delegate] keyHandler] onCtrlReleased];
         }
     }
     [super sendEvent: anEvent];

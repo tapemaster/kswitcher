@@ -46,7 +46,7 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     [window setOpaque:NO];
 }
 
-+ (void)registerHotkeys {
++ (void)registerHotkeys: (KeyHandler*) keyHandler {
     //handler
     hotKeyFunction = NewEventHandlerUPP(hotKeyHandler);
     EventTypeSpec eventType;
@@ -84,7 +84,7 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
         if (tp == NSFlagsChanged) {
             NSUInteger mod = [event modifierFlags];
             if(!(mod & NSControlKeyMask)) {
-                [KeyHandler onCtrlReleased];
+                [keyHandler onCtrlReleased];
             }
         }
     }];

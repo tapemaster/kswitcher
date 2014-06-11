@@ -82,8 +82,8 @@ var cells = Array<Array<CellView?>>()
         disableInactiveCells()
     }
     
-    class func onCtrlReleased() {
-        resetPos()
+    func onCtrlReleased() {
+        KeyHandler.resetPos()
         window?.orderOut(nil)
     }
     
