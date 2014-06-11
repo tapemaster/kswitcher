@@ -3,7 +3,6 @@
 #import "wm2-Swift.h"
 
 @implementation WM2Application
-BOOL _cmdKeyDown;
 
 
 - (void)sendEvent:(NSEvent *)anEvent
