@@ -4,6 +4,7 @@
 
 @interface WM2Helper : NSObject
 + (void) requestAccessibility;
-+ (void) registerHotkeys: (KeyHandler*) keyHandler;
++ (void) registerHotkeyHandler: (KeyHandler*) keyHandler;
++ (void) addHotKey: (UInt) keyCode;
 + (void) setupWindow: (NSWindow*) window;
 @end

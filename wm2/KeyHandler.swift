@@ -16,7 +16,21 @@ var cells = Array<Array<CellView?>>()
 
 @objc class KeyHandler {
     
+    enum HotKeys: CUnsignedInt {
+        case Left = 123
+        case Right = 124
+        case Down = 125
+        case Up = 126
+        
+        static let allValues = [Left, Right, Down, Up]
+    }
+    
     init() {
+        WM2Helper.registerHotkeyHandler(self);
+
+        for i in HotKeys.allValues {
+            WM2Helper.addHotKey(i.toRaw());
+        }
     }
     
     func onLeftPressed() {
@@ -82,22 +96,18 @@ var cells = Array<Array<CellView?>>()
         disableInactiveCells()
     }
     
-    func onKeyPressed(id: UInt) {
-        switch (id) {
-        case 1:
-            onLeftPressed()
-            break;
-        case 2:
-            onRightPressed()
-            break;
-        case 3:
-            onDownPressed()
-            break;
-        case 4:
-            onUpPressed()
-            break;
-        default:
-            break;
+    func onKeyPressed(id: CUnsignedInt) {
+        if let hotkey = HotKeys.fromRaw(id) {
+            switch hotkey {
+            case .Left:
+                onLeftPressed()
+            case HotKeys.Right:
+                onRightPressed()
+            case HotKeys.Down:
+                onDownPressed()
+            case HotKeys.Up:
+                onUpPressed()
+            }
         }
     }
     

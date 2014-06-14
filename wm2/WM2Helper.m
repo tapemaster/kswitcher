@@ -34,39 +34,13 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     [window setOpaque:NO];
 }
 
-+ (void)registerHotkeys: (KeyHandler*) keyHandler {
-    //handler
++ (void)registerHotkeyHandler: (KeyHandler*) keyHandler {
     hotKeyFunction = NewEventHandlerUPP(hotKeyHandler);
     EventTypeSpec eventType;
     eventType.eventClass = kEventClassKeyboard;
     eventType.eventKind = kEventHotKeyPressed;
     InstallApplicationEventHandler(hotKeyFunction, 1, &eventType, (__bridge void*) keyHandler, NULL);
-    //hotkey 1
-    UInt32 keyCode1 = 123; //left arrow
-    EventHotKeyRef theRef = NULL;
-    EventHotKeyID keyID1;
-    keyID1.signature = 'FOO '; //arbitrary string
-    keyID1.id = 1;
-    RegisterEventHotKey(keyCode1, controlKey, keyID1, GetApplicationEventTarget(), 0, &theRef);
-    //hotkey 2
-    UInt32 keyCode2 = 124; //right arrow
-    EventHotKeyID keyID2;
-    keyID2.signature = 'FOO '; //arbitrary string
-    keyID2.id = 2;
-    RegisterEventHotKey(keyCode2, controlKey, keyID2, GetApplicationEventTarget(), 0, &theRef);
-    //hotkey 3
-    UInt32 keyCode3 = 125; //down arrow
-    EventHotKeyID keyID3;
-    keyID3.signature = 'FOO '; //arbitrary string
-    keyID3.id = 3;
-    RegisterEventHotKey(keyCode3, controlKey, keyID3, GetApplicationEventTarget(), 0, &theRef);
-    //hotkey 4
-    UInt32 keyCode4 = 126; //up arrow
-    EventHotKeyID keyID4;
-    keyID4.signature = 'FOO '; //arbitrary string
-    keyID4.id = 4;
-    RegisterEventHotKey(keyCode4, controlKey, keyID4, GetApplicationEventTarget(), 0, &theRef);
-    
+
     [NSEvent addGlobalMonitorForEventsMatchingMask:NSFlagsChangedMask handler:^(NSEvent *event) {
         NSEventType tp = [event type];
         if (tp == NSFlagsChanged) {
@@ -76,7 +50,14 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
             }
         }
     }];
-    
+}
+
++ (void) addHotKey: (UInt) keyCode {
+    EventHotKeyRef theRef = NULL;
+    EventHotKeyID keyID;
+    keyID.signature = 'FOO ';
+    keyID.id = keyCode;
+    RegisterEventHotKey(keyCode, controlKey, keyID, GetApplicationEventTarget(), 0, &theRef);
 }
 
 @end

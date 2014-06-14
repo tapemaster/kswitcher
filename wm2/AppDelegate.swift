@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         WM2Helper.requestAccessibility()
-        WM2Helper.registerHotkeys(keyHandler)
         WM2Helper.setupWindow(window)
         keyHandler.setWindow(window)
         keyHandler.setupView(parentView)
