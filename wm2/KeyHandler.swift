@@ -1,16 +1,7 @@
 import Foundation
 import Cocoa
 
-var posX = 0
-var posY = 0
 var window: NSWindow?
-let data = [
-    ["",         "",              "Firefox",        "",           ""        ],
-    ["",         "Finder",     "Google Chrome",     "",           ""        ],
-    ["Terminal", "Android Studio",  "",        "SourceTree",      ""        ],
-    ["",         "",              "Adium",          "",           ""        ],
-    ["",         "",              "Mail",           "",           ""        ]
-]
 
 var cells = Array<Array<CellView?>>()
 
@@ -24,6 +15,18 @@ var cells = Array<Array<CellView?>>()
         
         static let allValues = [Left, Right, Down, Up]
     }
+    
+    var posX = 0
+    var posY = 0
+    let data = [
+        ["",         "",              "Firefox",        "",           ""        ],
+        ["",         "Finder",     "Google Chrome",     "",           ""        ],
+        ["Terminal", "Android Studio",  "",        "SourceTree",      ""        ],
+        ["",         "",              "Adium",          "",           ""        ],
+        ["",         "",              "Mail",           "",           ""        ]
+    ]
+    
+
     
     init() {
         WM2Helper.registerHotkeyHandler(self);
