@@ -8,6 +8,8 @@
 extern Boolean AXIsProcessTrustedWithOptions(CFDictionaryRef options) __attribute__((weak_import));
 
 EventHandlerUPP hotKeyFunction;
+FourCharCode ccmdCode = 'CCMD';
+FourCharCode ctrlCode = 'CTRL';
 
 pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData)
 {
@@ -15,7 +17,9 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     GetEventParameter(theEvent, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(hkCom), NULL, &hkCom);
     
     KeyHandler* kh = (__bridge KeyHandler*) userData;
-    [kh onKeyPressed: hkCom.id];
+    
+    int delta = (hkCom.signature == ccmdCode) ? 2 : 1;
+    [kh onKeyPressed: hkCom.id delta: delta];
     
     return noErr;
 }
@@ -55,9 +59,14 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
 + (void) addHotKey: (UInt) keyCode {
     EventHotKeyRef theRef = NULL;
     EventHotKeyID keyID;
-    keyID.signature = 'FOO ';
+    keyID.signature = ctrlCode;
     keyID.id = keyCode;
     RegisterEventHotKey(keyCode, controlKey, keyID, GetApplicationEventTarget(), 0, &theRef);
+    
+    EventHotKeyID keyIDCmd;
+    keyIDCmd.signature = ccmdCode;
+    keyIDCmd.id = keyCode;
+    RegisterEventHotKey(keyCode, controlKey | cmdKey, keyIDCmd, GetApplicationEventTarget(), 0, &theRef);
 }
 
 @end

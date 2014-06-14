@@ -36,26 +36,6 @@ var cells = Array<Array<CellView?>>()
         }
     }
     
-    func onLeftPressed() {
-        --posX
-        stateUpdated()
-    }
-    
-    func onRightPressed() {
-        ++posX
-        stateUpdated()
-    }
-    
-    func onDownPressed() {
-        ++posY
-        stateUpdated()
-    }
-    
-    func onUpPressed() {
-        --posY
-        stateUpdated()
-    }
-    
     func clip(x: NSInteger, from: NSInteger, to: NSInteger) -> NSInteger {
         return max(from, min(x, to))
     }
@@ -91,18 +71,19 @@ var cells = Array<Array<CellView?>>()
         disableInactiveCells()
     }
     
-    func onKeyPressed(id: CUnsignedInt) {
+    func onKeyPressed(id: CUnsignedInt, delta: NSInteger) {
         if let hotkey = HotKeys.fromRaw(id) {
             switch hotkey {
             case .Left:
-                onLeftPressed()
+                posX -= delta
             case HotKeys.Right:
-                onRightPressed()
+                posX += delta
             case HotKeys.Down:
-                onDownPressed()
+                posY += delta
             case HotKeys.Up:
-                onUpPressed()
+                posY -= delta
             }
+            stateUpdated();
         }
     }
     
