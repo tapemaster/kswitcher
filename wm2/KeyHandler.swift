@@ -5,11 +5,11 @@ var posX = 0
 var posY = 0
 var window: NSWindow?
 let data = [
-    ["",         "",             "Firefox",  "",           ""         ],
-    ["",         "Finder",        "Mail",    "",           ""         ],
-    ["Terminal", "Android Studio",  "",  "SourceTree", "Google Chrome"],
-    ["",         "",              "Adium",    "",           ""        ],
-    ["",         "",              "",         "",           ""        ]
+    ["",         "",              "Firefox",        "",           ""        ],
+    ["",         "Finder",     "Google Chrome",     "",           ""        ],
+    ["Terminal", "Android Studio",  "",        "SourceTree",      ""        ],
+    ["",         "",              "Adium",          "",           ""        ],
+    ["",         "",              "Mail",           "",           ""        ]
 ]
 
 var cells = Array<Array<CellView?>>()
