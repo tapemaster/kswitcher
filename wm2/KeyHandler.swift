@@ -38,37 +38,31 @@ var cells = Array<Array<CellView?>>()
     
     func onLeftPressed() {
         --posX
-        if (posX < 0) {
-            posX = 0
-        }
         stateUpdated()
     }
     
     func onRightPressed() {
         ++posX
-        if (posX >= data[0].count) {
-            posX = data[0].count - 1
-        }
         stateUpdated()
     }
     
     func onDownPressed() {
         ++posY
-        if (posY >= data.count) {
-            posY = data.count - 1
-        }
         stateUpdated()
     }
     
     func onUpPressed() {
         --posY
-        if (posY < 0) {
-            posY = 0
-        }
         stateUpdated()
     }
     
+    func clip(x: NSInteger, from: NSInteger, to: NSInteger) -> NSInteger {
+        return max(from, min(x, to))
+    }
+    
     func stateUpdated() {
+        posX = clip(posX, from: 0, to: data[0].count - 1)
+        posY = clip(posY, from: 0, to: data.count - 1)
         window?.orderBack(nil)
         updateWindowPosition()
         let appName = data[posY][posX];
