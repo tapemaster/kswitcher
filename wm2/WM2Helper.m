@@ -14,20 +14,8 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     EventHotKeyID hkCom;
     GetEventParameter(theEvent, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(hkCom), NULL, &hkCom);
     
-    switch (hkCom.id) {
-        case 1:
-            [KeyHandler onLeftPressed];
-            break;
-        case 2:
-            [KeyHandler onRightPressed];
-            break;
-        case 3:
-            [KeyHandler onDownPressed];
-            break;
-        case 4:
-            [KeyHandler onUpPressed];
-            break;
-    }
+    KeyHandler* kh = (__bridge KeyHandler*) userData;
+    [kh onKeyPressed: hkCom.id];
     
     return noErr;
 }
@@ -52,7 +40,7 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     EventTypeSpec eventType;
     eventType.eventClass = kEventClassKeyboard;
     eventType.eventKind = kEventHotKeyPressed;
-    InstallApplicationEventHandler(hotKeyFunction, 1, &eventType, (__bridge void*)self, NULL);
+    InstallApplicationEventHandler(hotKeyFunction, 1, &eventType, (__bridge void*) keyHandler, NULL);
     //hotkey 1
     UInt32 keyCode1 = 123; //left arrow
     EventHotKeyRef theRef = NULL;

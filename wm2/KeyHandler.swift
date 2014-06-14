@@ -19,7 +19,7 @@ var cells = Array<Array<CellView?>>()
     init() {
     }
     
-    class func onLeftPressed() {
+    func onLeftPressed() {
         --posX
         if (posX < 0) {
             posX = 0
@@ -27,7 +27,7 @@ var cells = Array<Array<CellView?>>()
         stateUpdated()
     }
     
-    class func onRightPressed() {
+    func onRightPressed() {
         ++posX
         if (posX >= data[0].count) {
             posX = data[0].count - 1
@@ -35,7 +35,7 @@ var cells = Array<Array<CellView?>>()
         stateUpdated()
     }
     
-    class func onDownPressed() {
+    func onDownPressed() {
         ++posY
         if (posY >= data.count) {
             posY = data.count - 1
@@ -43,7 +43,7 @@ var cells = Array<Array<CellView?>>()
         stateUpdated()
     }
     
-    class func onUpPressed() {
+    func onUpPressed() {
         --posY
         if (posY < 0) {
             posY = 0
@@ -51,7 +51,7 @@ var cells = Array<Array<CellView?>>()
         stateUpdated()
     }
     
-    class func stateUpdated() {
+    func stateUpdated() {
         window?.orderBack(nil)
         updateWindowPosition()
         let appName = data[posY][posX];
@@ -63,7 +63,7 @@ var cells = Array<Array<CellView?>>()
         }
     }
     
-    class func disableInactiveCells() {
+    func disableInactiveCells() {
         for var i = 0; i < cells.count; ++i {
             for var j = 0; j < cells[i].count; ++j {
                 if let cell = cells[i][j] {
@@ -76,24 +76,43 @@ var cells = Array<Array<CellView?>>()
         }
     }
     
-    class func resetPos() {
+    func resetPos() {
         posX = 2;
         posY = 2;
         disableInactiveCells()
     }
     
+    func onKeyPressed(id: UInt) {
+        switch (id) {
+        case 1:
+            onLeftPressed()
+            break;
+        case 2:
+            onRightPressed()
+            break;
+        case 3:
+            onDownPressed()
+            break;
+        case 4:
+            onUpPressed()
+            break;
+        default:
+            break;
+        }
+    }
+    
     func onCtrlReleased() {
-        KeyHandler.resetPos()
+        resetPos()
         window?.orderOut(nil)
     }
     
     func setWindow(w: NSWindow) {
-        KeyHandler.resetPos()
+        resetPos()
         window = w
-        KeyHandler.updateWindowPosition()
+        updateWindowPosition()
     }
     
-    class func updateWindowPosition() {
+    func updateWindowPosition() {
         let screenRect = NSScreen.mainScreen()!.frame
         var height = screenRect.height / Double(2)
         let minSize = Double(200)
