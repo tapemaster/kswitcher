@@ -65,8 +65,6 @@ var cells = Array<Array<CellView?>>()
         posY = clip(posY, from: 0, to: data.count - 1)
         window?.orderBack(nil)
         updateWindowPosition()
-        let appName = data[posY][posX];
-        NSWorkspace.sharedWorkspace().launchApplication(appName)
         disableInactiveCells()
         if let cell = cells[posX][posY] {
             cell.selected = true
@@ -109,6 +107,8 @@ var cells = Array<Array<CellView?>>()
     }
     
     func onCtrlReleased() {
+        let appName = data[posY][posX];
+        NSWorkspace.sharedWorkspace().launchApplication(appName)
         resetPos()
         window?.orderOut(nil)
     }
