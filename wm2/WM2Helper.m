@@ -38,6 +38,66 @@ pascal OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent
     [window setOpaque:NO];
 }
 
++ (void) bringToFront: (KeyHandler*) keyHandler appName:(NSString*) appName {
+    pid_t currentProcess = [[NSProcessInfo processInfo] processIdentifier];
+    CGSize screenSize = [[NSScreen mainScreen] frame].size;
+    
+    NSArray *runningApplications = [[NSWorkspace sharedWorkspace] runningApplications];
+    for (NSRunningApplication *app in runningApplications) {
+        pid_t pid = [app processIdentifier];
+        
+        if (pid != currentProcess && pid != ((pid_t) - 1) && ![app.localizedName isEqualToString: appName]) {
+            AXUIElementRef _app = AXUIElementCreateApplication(pid);
+            CFArrayRef _windows;
+            
+            AXUIElementCopyAttributeValue((AXUIElementRef)_app,
+                                          (CFStringRef)NSAccessibilityWindowsAttribute,
+                                          (CFTypeRef*)&_windows);
+            
+            NSArray *data = [(__bridge NSArray *) _windows copy];
+            
+            for (int i = 0; i < [data count]; i++) {
+                CFTypeRef _window = (__bridge CFTypeRef)data[i];
+                CFTypeRef _pos;
+                
+                AXUIElementCopyAttributeValue((AXUIElementRef)_window,
+                                              (CFStringRef)NSAccessibilityPositionAttribute,
+                                              (CFTypeRef*)&_pos);
+                NSPoint oldPos;
+                AXValueGetValue(_pos, kAXValueCGPointType, &oldPos);
+                
+                WindowData* wd = [[WindowData alloc] init];
+                wd.posX = oldPos.x;
+                wd.posY = oldPos.y;
+                wd.wRef = (__bridge id) _window;
+                [keyHandler windowToRestore: wd];
+                
+                NSPoint pos;
+                pos.x = screenSize.width;
+                pos.y = screenSize.height;
+                _pos = (CFTypeRef)(AXValueCreate(kAXValueCGPointType, (const void *)&pos));
+                
+                AXUIElementSetAttributeValue((AXUIElementRef)_window,
+                                             (CFStringRef)NSAccessibilityPositionAttribute,
+                                             (CFTypeRef*)_pos);
+            }
+        }
+    }
+}
+
++ (void) restoreWindow: (WindowData*) data {
+    NSPoint pos;
+    pos.x = data.posX;
+    pos.y = data.posY;
+    
+    CFTypeRef _pos = (CFTypeRef)(AXValueCreate(kAXValueCGPointType, (const void *)&pos));
+    CFTypeRef _window = (__bridge CFTypeRef)data.wRef;
+    
+    AXUIElementSetAttributeValue((AXUIElementRef)_window,
+                                 (CFStringRef)NSAccessibilityPositionAttribute,
+                                 (CFTypeRef*)_pos);
+}
+
 + (void)registerHotkeyHandler: (KeyHandler*) keyHandler {
     hotKeyFunction = NewEventHandlerUPP(hotKeyHandler);
     EventTypeSpec eventType;

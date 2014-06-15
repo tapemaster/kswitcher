@@ -27,6 +27,7 @@ var cells = Array<Array<CellView?>>()
     ]
     
 
+    var stored = Array<WindowData>()
     
     init() {
         WM2Helper.registerHotkeyHandler(self);
@@ -41,15 +42,29 @@ var cells = Array<Array<CellView?>>()
     }
     
     func stateUpdated() {
+        restoreAllWindows()
         posX = clip(posX, from: 0, to: data[0].count - 1)
         posY = clip(posY, from: 0, to: data.count - 1)
         window?.orderBack(nil)
+        let appName = data[posY][posX];
+        WM2Helper.bringToFront(self, appName: appName)
         updateWindowPosition()
         disableInactiveCells()
         if let cell = cells[posX][posY] {
             cell.selected = true
             cell.needsDisplay = true
         }
+    }
+    
+    func windowToRestore(data: WindowData) {
+        stored.append(data)
+    }
+    
+    func restoreAllWindows() {
+        for data in stored {
+            WM2Helper.restoreWindow(data)
+        }
+        stored.removeAll(keepCapacity: false)
     }
     
     func disableInactiveCells() {
@@ -92,6 +107,7 @@ var cells = Array<Array<CellView?>>()
         NSWorkspace.sharedWorkspace().launchApplication(appName)
         resetPos()
         window?.orderOut(nil)
+        restoreAllWindows()
     }
     
     func setWindow(w: NSWindow) {

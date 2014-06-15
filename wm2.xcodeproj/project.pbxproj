@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD20F4FB194CDAF10069A9A2 /* WindowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20F4FA194CDAF10069A9A2 /* WindowData.swift */; };
 		BD27A7D21944F6CD001368BE /* ClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A7D11944F6CD001368BE /* ClearView.swift */; };
 		BD27A7D41944FB74001368BE /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27A7D31944FB74001368BE /* CellView.swift */; };
 		BD27A7DE194518E9001368BE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD27A7DD194518E9001368BE /* icon.png */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD20F4FA194CDAF10069A9A2 /* WindowData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowData.swift; sourceTree = "<group>"; };
 		BD27A7D11944F6CD001368BE /* ClearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearView.swift; sourceTree = "<group>"; };
 		BD27A7D31944FB74001368BE /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		BD27A7DD194518E9001368BE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				BD5620981944497C00231948 /* wm2-Bridging-Header.h */,
 				BD56209B194449A000231948 /* WM2Helper.h */,
 				BD56209C1944603900231948 /* KeyHandler.swift */,
+				BD20F4FA194CDAF10069A9A2 /* WindowData.swift */,
 				BD27A7D31944FB74001368BE /* CellView.swift */,
 				BD27A7D11944F6CD001368BE /* ClearView.swift */,
 				BD56209E1944832400231948 /* WM2Application.m */,
@@ -168,6 +171,7 @@
 				BD4BB083194383010008FCD9 /* AppDelegate.swift in Sources */,
 				BD56209D1944603900231948 /* KeyHandler.swift in Sources */,
 				BD56209F1944832400231948 /* WM2Application.m in Sources */,
+				BD20F4FB194CDAF10069A9A2 /* WindowData.swift in Sources */,
 				BD4BB081194383010008FCD9 /* main.swift in Sources */,
 				BD27A7D41944FB74001368BE /* CellView.swift in Sources */,
 			);
