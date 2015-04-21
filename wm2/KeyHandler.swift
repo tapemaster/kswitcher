@@ -33,7 +33,7 @@ var cells = Array<Array<CellView?>>()
         WM2Helper.registerHotkeyHandler(self);
 
         for i in HotKeys.allValues {
-            WM2Helper.addHotKey(i.toRaw());
+            WM2Helper.addHotKey(i.rawValue)
         }
     }
     
@@ -87,7 +87,7 @@ var cells = Array<Array<CellView?>>()
     }
     
     func onKeyPressed(id: CUnsignedInt, delta: NSInteger) {
-        if let hotkey = HotKeys.fromRaw(id) {
+        if let hotkey = HotKeys(rawValue: id) {
             switch hotkey {
             case .Left:
                 posX -= delta
@@ -118,8 +118,8 @@ var cells = Array<Array<CellView?>>()
     
     func updateWindowPosition() {
         let screenRect = NSScreen.mainScreen()!.frame
-        var height = screenRect.height / Double(2)
-        let minSize = Double(200)
+        var height = CGFloat(screenRect.height) / CGFloat(2)
+        let minSize = CGFloat(200)
         if height < minSize {
             if screenRect.height < minSize {
                 height = screenRect.height
@@ -128,7 +128,7 @@ var cells = Array<Array<CellView?>>()
             }
         }
         
-        var width = screenRect.width / Double(2)
+        var width = CGFloat(screenRect.width) / CGFloat(2)
         
         if width < minSize {
             if screenRect.width < minSize {
@@ -137,7 +137,7 @@ var cells = Array<Array<CellView?>>()
                 width = minSize
             }
         }
-        let frameRect = NSRect(x:screenRect.midX - width / Double(2), y: screenRect.midY - height / Double(2), width: width, height: height)
+        let frameRect = NSRect(x:screenRect.midX - width / CGFloat(2), y: screenRect.midY - height / CGFloat(2), width: width, height: height)
         window?.setFrame(frameRect, display: true)
     }
     
@@ -146,20 +146,20 @@ var cells = Array<Array<CellView?>>()
         let rows = data.count
 
         let r = parentView.frame
-        let stepX = r.width / Double(columns)
-        let stepY = r.height / Double(rows)
+        let stepX = r.width / CGFloat(columns)
+        let stepY = r.height / CGFloat(rows)
         
         for var i = 0; i < columns; ++i {
             cells.append(Array<CellView>())
             for var j = 0; j < rows; ++j {
                 var button : CellView? = nil
                 let path = NSWorkspace.sharedWorkspace().fullPathForApplication(data[j][i])
-                if path != nil && !path.isEmpty {
-                    let bRect = NSRect(x:r.minX + stepX * Double(i), y:r.maxY - stepY - stepY * Double(j), width: stepX, height: stepY)
+                if path != nil && !path!.isEmpty {
+                    let bRect = NSRect(x:r.minX + stepX * CGFloat(i), y:r.maxY - stepY - stepY * CGFloat(j), width: stepX, height: stepY)
 
-                    button = CellView(icon: NSWorkspace.sharedWorkspace().iconForFile(path), rect: bRect)
+                    button = CellView(icon: NSWorkspace.sharedWorkspace().iconForFile(path!), rect: bRect)
                     
-                    parentView.addSubview(button)
+                    parentView.addSubview(button!)
                 }
                 
                 cells[i].append(button)

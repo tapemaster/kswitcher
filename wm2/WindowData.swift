@@ -6,7 +6,7 @@ class WindowData : NSObject {
     var posY : NSInteger = 0
     var wRef : AnyObject?
     
-    init() {
+    override init() {
         
     }
 }
