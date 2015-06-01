@@ -43,6 +43,13 @@ var cells = Array<Array<CellView?>>()
     
     func stateUpdated() {
         restoreAllWindows()
+        if (posX == 2 && posY == -1) {
+            NSWorkspace.sharedWorkspace().launchApplication("/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app")
+            resetPos()
+            window?.orderOut(nil)
+            restoreAllWindows()
+            return
+        }
         posX = clip(posX, from: 0, to: data[0].count - 1)
         posY = clip(posY, from: 0, to: data.count - 1)
         window?.orderBack(nil)
