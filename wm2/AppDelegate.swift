@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
         WM2Helper.requestAccessibility()
         WM2Helper.setupWindow(window)
         keyHandler.setWindow(window!)
@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem!.highlightMode = true
     }
 
-    func applicationWillTerminate(aNotification: NSNotification?) {
+    func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
 

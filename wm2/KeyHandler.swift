@@ -5,7 +5,7 @@ var window: NSWindow?
 
 var cells = Array<Array<CellView?>>()
 
-@objc class KeyHandler {
+@objc class KeyHandler : NSObject {
     
     enum HotKeys: CUnsignedInt {
         case Left = 123
@@ -29,7 +29,8 @@ var cells = Array<Array<CellView?>>()
 
     var stored = Array<WindowData>()
     
-    init() {
+    override init() {
+        super.init()
         WM2Helper.registerHotkeyHandler(self);
 
         for i in HotKeys.allValues {
