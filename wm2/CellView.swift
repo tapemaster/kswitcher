@@ -18,7 +18,7 @@ class CellView : NSView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(dirtyRect: NSRect) {
+    override func draw(_ dirtyRect: NSRect) {
         NSColor(white: 0.5, alpha: 0.3).set()
         NSRectFill(dirtyRect)
         let w = min(dirtyRect.width, image.size.width)

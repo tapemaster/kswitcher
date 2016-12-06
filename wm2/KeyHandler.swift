@@ -38,7 +38,7 @@ var cells = Array<Array<CellView?>>()
         }
     }
     
-    func clip(x: NSInteger, from: NSInteger, to: NSInteger) -> NSInteger {
+    func clip(_ x: NSInteger, from: NSInteger, to: NSInteger) -> NSInteger {
         return max(from, min(x, to))
     }
     
@@ -63,7 +63,7 @@ var cells = Array<Array<CellView?>>()
         }
     }
     
-    func windowToRestore(data: WindowData) {
+    func windowToRestore(_ data: WindowData) {
         stored.append(data)
     }
     
@@ -93,7 +93,7 @@ var cells = Array<Array<CellView?>>()
         disableInactiveCells()
     }
     
-    func onKeyPressed(id: CUnsignedInt, delta: NSInteger) {
+    func onKeyPressed(_ id: CUnsignedInt, delta: NSInteger) {
         if let hotkey = HotKeys(rawValue: id) {
             switch hotkey {
             case .Left:
@@ -117,7 +117,7 @@ var cells = Array<Array<CellView?>>()
         restoreAllWindows()
     }
     
-    func setWindow(w: NSWindow) {
+    func setWindow(_ w: NSWindow) {
         resetPos()
         window = w
         updateWindowPosition()
@@ -148,7 +148,7 @@ var cells = Array<Array<CellView?>>()
         window?.setFrame(frameRect, display: true)
     }
     
-    func setupView(parentView: NSView) {
+    func setupView(_ parentView: NSView) {
         let columns = data[0].count
         let rows = data.count
 
