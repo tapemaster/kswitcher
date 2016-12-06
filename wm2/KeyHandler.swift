@@ -8,12 +8,12 @@ var cells = Array<Array<CellView?>>()
 @objc class KeyHandler : NSObject {
     
     enum HotKeys: CUnsignedInt {
-        case Left = 123
-        case Right = 124
-        case Down = 125
-        case Up = 126
+        case left = 123
+        case right = 124
+        case down = 125
+        case up = 126
         
-        static let allValues = [Left, Right, Down, Up]
+        static let allValues = [left, right, down, up]
     }
     
     var posX = 0
@@ -96,13 +96,13 @@ var cells = Array<Array<CellView?>>()
     func onKeyPressed(_ id: CUnsignedInt, delta: NSInteger) {
         if let hotkey = HotKeys(rawValue: id) {
             switch hotkey {
-            case .Left:
+            case .left:
                 posX -= delta
-            case HotKeys.Right:
+            case HotKeys.right:
                 posX += delta
-            case HotKeys.Down:
+            case HotKeys.down:
                 posY += delta
-            case HotKeys.Up:
+            case HotKeys.up:
                 posY -= delta
             }
             stateUpdated();
