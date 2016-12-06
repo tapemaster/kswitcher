@@ -75,8 +75,8 @@ var cells = Array<Array<CellView?>>()
     }
     
     func disableInactiveCells() {
-        for var i = 0; i < cells.count; ++i {
-            for var j = 0; j < cells[i].count; ++j {
+        for i in 0 ..< cells.count {
+            for j in 0 ..< cells[i].count {
                 if let cell = cells[i][j] {
                     if (cell.selected) {
                         cell.selected = false
@@ -156,9 +156,9 @@ var cells = Array<Array<CellView?>>()
         let stepX = r.width / CGFloat(columns)
         let stepY = r.height / CGFloat(rows)
         
-        for var i = 0; i < columns; ++i {
+        for i in 0 ..< columns {
             cells.append(Array<CellView>())
-            for var j = 0; j < rows; ++j {
+            for j in 0 ..< rows {
                 var button : CellView? = nil
                 let path = NSWorkspace.sharedWorkspace().fullPathForApplication(data[j][i])
                 if path != nil && !path!.isEmpty {
