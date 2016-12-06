@@ -78,7 +78,7 @@ var cells = Array<Array<CellView?>>()
         for data in stored {
             WM2Helper.restoreWindow(data)
         }
-        stored.removeAll(keepCapacity: false)
+        stored.removeAll(keepingCapacity: false)
     }
     
     func disableInactiveCells() {
