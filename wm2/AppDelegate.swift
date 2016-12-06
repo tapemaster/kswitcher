@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         keyHandler.setWindow(window!)
         keyHandler.setupView(parentView!)
         
-        statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+        statusItem = NSStatusBar.system().statusItem(withLength: -1)
         statusItem!.menu = menu
-        statusItem!.image = NSBundle.mainBundle().imageForResource("icon")
+        statusItem!.image = Bundle.main.image(forResource: "icon")
         statusItem!.highlightMode = true
     }
 

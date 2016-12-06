@@ -111,7 +111,7 @@ var cells = Array<Array<CellView?>>()
     
     func onCtrlReleased() {
         let appName = data[posY][posX];
-        NSWorkspace.sharedWorkspace().launchApplication(appName)
+        NSWorkspace.shared().launchApplication(appName)
         resetPos()
         window?.orderOut(nil)
         restoreAllWindows()
@@ -124,7 +124,7 @@ var cells = Array<Array<CellView?>>()
     }
     
     func updateWindowPosition() {
-        let screenRect = NSScreen.mainScreen()!.frame
+        let screenRect = NSScreen.main()!.frame
         var height = CGFloat(screenRect.height) / CGFloat(2)
         let minSize = CGFloat(200)
         if height < minSize {
@@ -160,11 +160,11 @@ var cells = Array<Array<CellView?>>()
             cells.append(Array<CellView>())
             for j in 0 ..< rows {
                 var button : CellView? = nil
-                let path = NSWorkspace.sharedWorkspace().fullPathForApplication(data[j][i])
+                let path = NSWorkspace.shared().fullPath(forApplication: data[j][i])
                 if path != nil && !path!.isEmpty {
                     let bRect = NSRect(x:r.minX + stepX * CGFloat(i), y:r.maxY - stepY - stepY * CGFloat(j), width: stepX, height: stepY)
 
-                    button = CellView(icon: NSWorkspace.sharedWorkspace().iconForFile(path!), rect: bRect)
+                    button = CellView(icon: NSWorkspace.shared().icon(forFile: path!), rect: bRect)
                     
                     parentView.addSubview(button!)
                 }

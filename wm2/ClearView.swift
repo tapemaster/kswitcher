@@ -3,7 +3,7 @@ import Cocoa
 
 class ClearView : NSView {
     override func draw(_ dirtyRect: NSRect) {
-        NSColor.clearColor().set()
+        NSColor.clear.set()
         NSRectFill(dirtyRect)
     }
 }

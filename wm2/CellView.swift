@@ -24,11 +24,11 @@ class CellView : NSView {
         let w = min(dirtyRect.width, image.size.width)
         let h = min(dirtyRect.height, image.size.height)
         let targetRect = NSRect(x: dirtyRect.midX - w / CGFloat(2), y: dirtyRect.midY - h / CGFloat(2), width: w, height: h)
-        image.drawInRect(targetRect)
+        image.draw(in: targetRect)
         
         if selected {
             let selectorRect = NSRect(x: targetRect.minX - w / CGFloat(2), y: targetRect.minY - h / CGFloat(2), width: w * CGFloat(2), height: h * CGFloat(2))
-            NSColor.blueColor().set()
+            NSColor.blue.set()
             let path = NSBezierPath(roundedRect: selectorRect, xRadius: 5, yRadius: 5)
             path.stroke()
         }
