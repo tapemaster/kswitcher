@@ -19,11 +19,11 @@ var cells = Array<Array<CellView?>>()
     var posX = 0
     var posY = 0
     let data = [
-        ["",         "",              "Firefox",        "",           ""        ],
-        ["",         "Finder",     "Google Chrome",     "",           ""        ],
-        ["Terminal", "Android Studio",  "",        "SourceTree",      ""        ],
-        ["",         "",              "Adium",          "",           ""        ],
-        ["",         "",              "Mail",           "",           ""        ]
+        ["",         "",              "Chromium",        "Adium",           ""        ],
+        ["",         "Finder",         "Google Chrome",     "Calendar",           ""        ],
+        ["iTerm", "Android Studio",  "",        "SourceTree",      "Xcode"        ],
+        ["",         "Sublime Text",              "Slack",          "Spotify",           ""        ],
+        ["",         "",              "",           "",           ""        ]
     ]
     
 
