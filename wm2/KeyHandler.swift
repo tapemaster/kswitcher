@@ -45,7 +45,7 @@ var cells = Array<Array<CellView?>>()
     func stateUpdated() {
         restoreAllWindows()
         if (posX == 2 && posY == -1) {
-            NSWorkspace.sharedWorkspace().launchApplication("/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app")
+            lockScreenImmediate()
             resetPos()
             window?.orderOut(nil)
             restoreAllWindows()
@@ -61,6 +61,14 @@ var cells = Array<Array<CellView?>>()
             cell.selected = true
             cell.needsDisplay = true
         }
+    }
+    
+    func lockScreenImmediate() {
+        let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)
+        let sym = dlsym(libHandle, "SACLockScreenImmediate")
+        typealias myFunction = @convention(c) (Void) -> Void
+        let SACLockScreenImmediate = unsafeBitCast(sym, to: myFunction.self)
+        SACLockScreenImmediate()
     }
     
     func windowToRestore(_ data: WindowData) {
