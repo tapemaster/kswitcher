@@ -1,3 +1,3 @@
 import Cocoa
 
-NSApplicationMain(Process.argc, Process.unsafeArgv)
+let result = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)

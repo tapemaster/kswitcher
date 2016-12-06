@@ -54,7 +54,6 @@ var cells = Array<Array<CellView?>>()
         posX = clip(posX, from: 0, to: data[0].count - 1)
         posY = clip(posY, from: 0, to: data.count - 1)
         window?.orderBack(nil)
-        let appName = data[posY][posX];
         updateWindowPosition()
         disableInactiveCells()
         if let cell = cells[posX][posY] {
