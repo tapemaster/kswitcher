@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        WM2Helper.requestAccessibility()
+        //WM2Helper.requestAccessibility()
         WM2Helper.setupWindow(window)
         keyHandler.setWindow(window!)
         keyHandler.setupView(parentView!)
