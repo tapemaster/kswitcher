@@ -7,7 +7,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var parentView: NSView?
     @IBOutlet var menu: NSMenu?
     var statusItem: NSStatusItem?
-    let keyHandler = KeyHandler()
+    @objc let keyHandler = KeyHandler()
 
     override init() {
 
@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         keyHandler.setWindow(window!)
         keyHandler.setupView(parentView!)
         
-        statusItem = NSStatusBar.system().statusItem(withLength: -1)
+        statusItem = NSStatusBar.system.statusItem(withLength: -1)
         statusItem!.menu = menu
         statusItem!.image = Bundle.main.image(forResource: "icon")
         statusItem!.highlightMode = true

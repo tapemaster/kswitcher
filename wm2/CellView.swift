@@ -20,7 +20,7 @@ class CellView : NSView {
     
     override func draw(_ dirtyRect: NSRect) {
         NSColor(white: 0.5, alpha: 0.3).set()
-        NSRectFill(dirtyRect)
+        dirtyRect.fill()
         let w = min(dirtyRect.width, image.size.width)
         let h = min(dirtyRect.height, image.size.height)
         let targetRect = NSRect(x: dirtyRect.midX - w / CGFloat(2), y: dirtyRect.midY - h / CGFloat(2), width: w, height: h)
